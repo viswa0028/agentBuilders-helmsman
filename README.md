@@ -6,7 +6,9 @@
 
 HelmsMan bridges the gap between passive dashboard-watching and safe, autonomous infrastructure management. Instead of relying on rigid, reactive CPU-threshold autoscaling, HelmsMan introduces a multi-agent adversarial negotiation loop running on top of the **Model Context Protocol (MCP)**. 
 
-Two specialized AI agents—a cost-cutting **FinOps Agent** and an aggressive **Availability Guardian**—negotiate infrastructure changes over a live Kubernetes cluster. Crucially, safety is not handled via soft agent reasoning; the server evaluates `PodDisruptionBudget.status` live in code, acting as an absolute programmatic safety gate.
+Two specialized AI agents—a cost-cutting 
+**FinOps Agent** and an aggressive 
+**Availability Guardian**—negotiate infrastructure changes over a live Kubernetes cluster. Crucially, safety is not handled via soft agent reasoning; the server evaluates `PodDisruptionBudget.status` live in code, acting as an absolute programmatic safety gate.
 ---
 
 # 📌 Overview
