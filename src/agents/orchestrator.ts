@@ -1,4 +1,4 @@
-import Groq from 'groq-sdk';
+import OpenAI from 'openai';
 import { FINOPS_SYSTEM, GUARDIAN_SYSTEM, SUMMARY_SYSTEM } from './prompts.js';
 import { TOOLS } from './tools.js';
 import { executeTool } from './executor.js';
@@ -31,22 +31,22 @@ function log(prefix: string, color: string, msg: string) {
   });
 }
 
-// ── Groq client ─────────────────────────────────────
-const apiKey = process.env.GROQ_API_KEY;
+// ── Grok client (via OpenAI SDK) ────────────────────────
+const apiKey = process.env.GROK_API_KEY;
 if (!apiKey) {
-  console.error(`${C.red}${C.bold}Error:${C.reset} GROQ_API_KEY env variable is not set.`);
-  console.error(`  Get a free key at: https://console.groq.com`);
-  console.error(`  Then: export GROQ_API_KEY="your-key"`);
+  console.error(`${C.red}${C.bold}Error:${C.reset} GROK_API_KEY env variable is not set.`);
+  console.error(`  Get a key at: https://console.x.ai`);
+  console.error(`  Then: export GROK_API_KEY="your-key"`);
   process.exit(1);
 }
 
-const groq = new Groq({ apiKey });
+const openai = new OpenAI({ apiKey, baseURL: 'https://api.x.ai/v1' });
 
-// Model — llama-3.3-70b-versatile has the best function calling on Groq free tier
-const MODEL = 'llama-3.3-70b-versatile';
+// Model
+const MODEL = 'grok-2-latest';
 
 // ── types ───────────────────────────────────────────
-type ChatMessage = Groq.Chat.ChatCompletionMessageParam;
+type ChatMessage = OpenAI.Chat.ChatCompletionMessageParam;
 
 // ── agent loop ──────────────────────────────────────
 async function runAgent(
@@ -67,7 +67,7 @@ async function runAgent(
   while (iterations < MAX_ITERATIONS) {
     iterations++;
 
-    const response = await groq.chat.completions.create({
+    const response = await openai.chat.completions.create({
       model: MODEL,
       max_tokens: 4096,
       messages,
@@ -142,7 +142,7 @@ async function runAgent(
 async function main() {
   console.log(`\n${C.bg_blue}${C.bold} ⎈  HELMSMAN — Autonomous Kubernetes Remediation ${C.reset}`);
   console.log(`${C.dim}   Multi-agent cost optimization with availability protection${C.reset}`);
-  console.log(`${C.dim}   Powered by ${MODEL} on Groq${C.reset}\n`);
+  console.log(`${C.dim}   Powered by ${MODEL} on Grok${C.reset}\n`);
 
   // ── Phase 1: FinOps Agent ─────────────────────────
   banner(C.bg_yellow, '💰', 'PHASE 1 — FinOps Agent: Cost Analysis');

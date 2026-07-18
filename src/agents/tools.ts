@@ -1,4 +1,4 @@
-// Groq uses the OpenAI tool format
+// Grok uses the OpenAI tool format
 
 export const TOOLS = [
   {
