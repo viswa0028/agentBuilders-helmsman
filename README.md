@@ -1,11 +1,25 @@
-# ⚓ HelmsMan — Autonomous Kubernetes Remediation MCP Server
+<p align="center">
+  <img src="images/banner.png" alt="HelmsMan Banner"/>
+</p>
+
+<h1 align="center">⚓ HelmsMan</h1>
+
+<p align="center">
+<b>Autonomous Kubernetes Remediation using the Model Context Protocol (MCP)</b>
+</p>
 
 <p align="center">
 
 [![Track](https://img.shields.io/badge/Track-Cloud--Native-blue.svg)](#)
+[![Framework](https://img.shields.io/badge/Framework-NitroStack_MCP-orange.svg)](#)
 [![Platform](https://img.shields.io/badge/Kubernetes-kind-blue.svg)](#)
-[![Framework](https://img.shields.io/badge/Framework-NitroStack%20MCP-orange.svg)](#)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](#)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](#)
 
+</p>
+
+<p align="center">
+AI-powered Kubernetes operations where multiple agents negotiate infrastructure changes while a programmatic safety engine guarantees availability.
 </p>
 
 # 📌 Overview
