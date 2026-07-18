@@ -69,7 +69,7 @@ As a result, organizations often face:
 
 - 💸 Over-provisioned infrastructure
 - ⚠️ Unsafe scaling decisions
-- 🧑‍💻 Continuous manual intervention
+- 🧑💻 Continuous manual intervention
 - 🚨 Increased operational risk
 - 📈 Higher cloud costs
 
@@ -190,7 +190,7 @@ Operators can inspect the complete remediation lifecycle while maintaining full 
 | ☸️ Live Kubernetes Integration | Connects directly to Deployments, Pods, Nodes, Services and PodDisruptionBudgets |
 | 🛡️ Deterministic Safety Engine | Rejects unsafe operations before they reach Kubernetes |
 | 💰 Cost Optimization | Detects over-provisioned workloads and recommends efficient scaling |
-| 📜 Complete Audit Trail | Records every approved and rejected remediation action |
+| 📜 Complete Audit Trail | Records every approved and remediation action |
 | 🔌 Native MCP Server | Implements Tools, Resources and Prompts using the Model Context Protocol |
 | ⚡ Live Cluster Reasoning | Makes decisions using the current Kubernetes cluster state rather than static metrics |
 
@@ -308,6 +308,7 @@ Produces:
 | Kubernetes CLI | kubectl |
 | Metrics | kube-state-metrics |
 | Kubernetes Client | Kubernetes Client SDK |
+| AI Integration | xAI Grok API (via OpenAI SDK) |
 
 ---
 
@@ -367,6 +368,7 @@ Before running HelmsMan, ensure the following are installed:
 - kind
 - NitroStudio
 - NitroStack CLI
+- xAI Grok API Key
 
 Verify your installation:
 
@@ -397,6 +399,12 @@ Install dependencies.
 
 ```bash
 npm install
+```
+
+Configure Environment Variables. Create a `.env` file and set your Grok API key:
+
+```env
+GROK_API_KEY=your_xai_api_key_here
 ```
 
 ---
@@ -836,7 +844,7 @@ Special thanks to the communities and projects that made HelmsMan possible:
 - Kubernetes
 - NitroStack MCP
 - Docker
-- OpenAI
+- OpenAI / xAI
 - kube-state-metrics
 - The Cloud Native Computing Foundation (CNCF)
 
@@ -855,6 +863,7 @@ If you found HelmsMan useful:
 ---
 
 <p align="center">
+
 
 ## ⚓ HelmsMan
 
