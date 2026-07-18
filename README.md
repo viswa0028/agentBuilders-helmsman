@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/banner.png" alt="HelmsMan Banner"/>
+  <img src="images/banner.png" alt="HelmsMan Banner" width="100%">
 </p>
 
 <h1 align="center">⚓ HelmsMan</h1>
@@ -20,58 +20,58 @@
 </p>
 
 <p align="center">
-HelmsMan is an <b>MCP (Model Context Protocol) server</b> that enables autonomous Kubernetes remediation using multiple AI agents while enforcing deterministic safety through live Kubernetes policy validation.
+AI-powered Kubernetes remediation where multiple AI agents negotiate infrastructure changes while a deterministic safety engine guarantees application availability.
 </p>
 
 ---
 
 # 📖 Overview
 
-Cloud-native infrastructure is becoming increasingly complex, yet Kubernetes operations remain largely manual and reactive. Existing autoscaling mechanisms rely on simple CPU or memory thresholds and lack awareness of operational safety, often resulting in over-provisioned clusters, higher cloud costs, and risky remediation actions.
+Modern Kubernetes operations remain largely reactive. Existing autoscalers respond only to CPU or memory thresholds, while engineers manually decide whether infrastructure changes are safe. This often results in over-provisioned clusters, higher cloud costs, and accidental downtime.
 
-**HelmsMan** addresses this challenge by introducing a **multi-agent autonomous remediation framework** built on the **Model Context Protocol (MCP)**.
+**HelmsMan** is an autonomous remediation platform built on the **Model Context Protocol (MCP)** that introduces **multi-agent reasoning** for Kubernetes operations.
 
-Instead of allowing a single AI model to make infrastructure decisions, HelmsMan orchestrates specialized agents that negotiate proposed actions while a deterministic safety engine validates every operation against the live Kubernetes cluster before execution.
+Instead of allowing a single AI model to directly manipulate infrastructure, HelmsMan coordinates multiple specialized agents that negotiate proposed actions while a deterministic safety engine validates every operation against the live Kubernetes cluster before execution.
 
-The result is an intelligent remediation system that optimizes infrastructure cost **without compromising application availability**.
+The result is an intelligent remediation framework that optimizes infrastructure costs **without compromising reliability or application availability**.
 
 ---
 
-# 🎯 Key Highlights
+# 🚀 Key Highlights
 
 - 🤖 Multi-Agent AI Decision Making
 - ☸️ Live Kubernetes Cluster Integration
-- 🛡️ Programmatic Safety Enforcement
+- 🛡️ Deterministic Safety Engine
 - 💰 Cost-Aware Infrastructure Optimization
 - 📜 Complete Audit Trail
 - 🔌 Native MCP Tools, Resources & Prompts
-- ⚡ Built using NitroStack MCP SDK
+- ⚡ Built using the NitroStack MCP SDK
 
 ---
 
 # ❗ Problem Statement
 
-Modern Kubernetes operations are reactive.
+Managing Kubernetes clusters requires continuous monitoring and operational expertise.
 
-Platform engineers continuously monitor dashboards and manually decide:
+Platform engineers frequently ask questions like:
 
 - Which deployment should be scaled?
 - Can replicas safely be reduced?
-- Will the action violate PodDisruptionBudgets?
+- Will scaling violate a PodDisruptionBudget?
 - Should a deployment be rolled back?
 - Is the cluster healthy enough for remediation?
 
-Current autoscalers only react to CPU or memory utilization.
+Current Kubernetes autoscalers react only to infrastructure metrics such as CPU or memory utilization.
 
-They **do not understand operational safety**.
+They **cannot reason about operational safety**.
 
-This often results in:
+As a result, organizations often face:
 
-- 💸 Over-provisioned clusters
-- ⚠️ Unsafe scale-down operations
+- 💸 Over-provisioned infrastructure
+- ⚠️ Unsafe scaling decisions
 - 🧑‍💻 Continuous manual intervention
-- 🚨 Accidental downtime
-- 📈 Increased cloud costs
+- 🚨 Increased operational risk
+- 📈 Higher cloud costs
 
 ---
 
@@ -79,109 +79,120 @@ This often results in:
 
 HelmsMan transforms Kubernetes operations from **reactive monitoring** into **autonomous, policy-aware remediation**.
 
-Instead of relying only on infrastructure metrics, HelmsMan continuously reasons over the **live cluster state** before executing any action.
+Instead of reacting solely to metrics, HelmsMan continuously reasons over the **live Kubernetes cluster state** before executing any action.
 
-The workflow consists of:
+The remediation workflow consists of:
 
 1. Reading the live Kubernetes cluster
-2. Understanding deployments, pods, nodes, and disruption budgets
-3. Negotiating remediation decisions using specialized AI agents
-4. Validating every action using server-side safety policies
+2. Understanding deployments, pods, nodes and disruption budgets
+3. Negotiating infrastructure changes using specialized AI agents
+4. Validating every proposed action against Kubernetes safety policies
 5. Executing only operations that preserve application availability
 
 Unlike traditional AI systems, **HelmsMan never trusts LLM output alone**.
 
-Every infrastructure change is validated directly against the Kubernetes API before execution.
+Every infrastructure change is validated against the **real Kubernetes API** before execution.
 
 ---
 
 # 🔄 Multi-Agent Workflow
 
 <p align="center">
-<img src="images/architecture-flow.png" width="950"/>
+    <img src="images/architecture-flow.png" alt="Workflow" width="950">
 </p>
 
-### 💰 FinOps Agent
+HelmsMan orchestrates two specialized AI agents that collaboratively determine the safest remediation strategy.
 
-Responsible for:
+## 💰 FinOps Agent
+
+The FinOps Agent focuses on **cost optimization**.
+
+Responsibilities include:
 
 - Detecting idle workloads
 - Identifying over-provisioned deployments
-- Optimizing infrastructure costs
-- Proposing replica reductions
+- Recommending replica reductions
+- Improving infrastructure utilization
+- Reducing cloud costs
 
 ---
 
-### 🛡️ Availability Guardian
+## 🛡️ Availability Guardian
 
-Responsible for:
+The Availability Guardian protects application reliability.
 
-- Evaluating infrastructure risk
+Responsibilities include:
+
+- Evaluating deployment health
 - Inspecting PodDisruptionBudgets
 - Preventing unsafe scale-down operations
+- Validating availability constraints
 - Reviewing every remediation proposal
 
 ---
 
-### 🔐 Safety Engine
+## 🔐 Safety Engine
 
-The Safety Engine acts as the final authority.
+The Safety Engine serves as the final authority.
 
-Before executing any infrastructure action it validates:
+Before executing any infrastructure action, it validates:
 
 - Deployment status
 - Replica count
-- PodDisruptionBudget
+- PodDisruptionBudget requirements
 - Minimum available replicas
 - Cluster health
 
-If any availability policy would be violated, the operation is rejected before reaching Kubernetes.
+If any Kubernetes availability policy would be violated, the operation is rejected before reaching the Kubernetes API.
 
 ---
 
 # 🏗️ System Architecture
 
 <p align="center">
-<img src="images/architecture.png" width="1000"/>
+    <img src="images/architecture.png" alt="Architecture" width="1000">
 </p>
 
 The architecture combines AI reasoning with deterministic policy enforcement.
 
-Rather than allowing agents to directly manipulate Kubernetes resources, all remediation requests pass through the MCP server where safety rules are enforced programmatically before interacting with the Kubernetes API.
+Rather than allowing AI agents to directly manipulate Kubernetes resources, every remediation request passes through the MCP server where infrastructure policies are validated before execution.
+
+This separation guarantees that safety remains deterministic regardless of AI output.
 
 ---
 
 # 📊 Dashboard
 
 <p align="center">
-<img src="images/dashboard.png" width="1000"/>
+    <img src="images/dashboard.png" alt="Dashboard" width="1000">
 </p>
 
 The HelmsMan dashboard provides real-time visibility into:
 
 - Cluster topology
 - Deployment health
-- Pod status
-- Agent decisions
+- Pod readiness
+- Infrastructure metrics
+- AI agent decisions
 - Approved actions
 - Rejected actions
 - Audit history
 
-Operators can observe the complete remediation lifecycle while maintaining full transparency over every decision made by the system.
+Operators can inspect the complete remediation lifecycle while maintaining full transparency over every infrastructure decision.
 
 ---
 
-# ✨ Features
+# ✨ Core Features
 
 | Feature | Description |
 |----------|-------------|
-| 🤖 Multi-Agent Negotiation | Specialized AI agents collaboratively decide infrastructure actions |
-| ☸️ Live Kubernetes Integration | Reads Deployments, Pods, Nodes, Services and PodDisruptionBudgets |
-| 🛡️ Deterministic Safety Engine | Prevents unsafe operations using real Kubernetes policies |
+| 🤖 Multi-Agent Decision Making | FinOps Agent and Availability Guardian negotiate every remediation action |
+| ☸️ Live Kubernetes Integration | Connects directly to Deployments, Pods, Nodes, Services and PodDisruptionBudgets |
+| 🛡️ Deterministic Safety Engine | Rejects unsafe operations before they reach Kubernetes |
 | 💰 Cost Optimization | Detects over-provisioned workloads and recommends efficient scaling |
-| 📜 Audit Trail | Records every approved and rejected remediation |
-| ⚡ MCP Native | Exposes Tools, Resources and Prompts through the Model Context Protocol |
-| 🔍 Real-Time Cluster Reasoning | Continuously evaluates the live cluster state before every action |
+| 📜 Complete Audit Trail | Records every approved and rejected remediation action |
+| 🔌 Native MCP Server | Implements Tools, Resources and Prompts using the Model Context Protocol |
+| ⚡ Live Cluster Reasoning | Makes decisions using the current Kubernetes cluster state rather than static metrics |
 
 ---
 
@@ -189,7 +200,7 @@ Operators can observe the complete remediation lifecycle while maintaining full 
 
 HelmsMan communicates directly with a running Kubernetes cluster.
 
-Supported resources include:
+Supported Kubernetes resources include:
 
 - Deployments
 - Pods
@@ -200,25 +211,25 @@ Supported resources include:
 - PodDisruptionBudgets
 - kube-state-metrics
 
-Unlike simulation-based demonstrations, every decision shown by HelmsMan is derived from the **live Kubernetes API**.
+Unlike simulation-based demonstrations, every decision shown by HelmsMan is derived from the **live Kubernetes API**, ensuring that AI agents reason over the actual state of the cluster.
 
 ---
 
 # 🛡️ Safety First
 
-Safety is not delegated to AI.
+Safety is enforced **programmatically**, not through AI reasoning alone.
 
-Instead, HelmsMan enforces infrastructure policies directly inside the MCP server.
-
-Every proposed operation undergoes:
+Every proposed remediation undergoes:
 
 - Live Kubernetes API validation
 - Replica verification
 - PodDisruptionBudget inspection
-- Availability checks
-- Policy enforcement
+- Availability policy enforcement
+- Cluster health verification
 
-Unsafe actions are rejected automatically, ensuring that remediation never compromises application availability.
+Only validated operations are executed.
+
+Unsafe operations are rejected automatically, ensuring that remediation never compromises application availability.
 
 ---
 
@@ -226,7 +237,7 @@ Unsafe actions are rejected automatically, ensuring that remediation never compr
 
 HelmsMan is built as a native **Model Context Protocol (MCP)** server using the **NitroStack MCP SDK**.
 
-It exposes Kubernetes functionality through **Tools**, **Resources**, and **Prompts**, enabling AI agents to reason over and safely operate a live Kubernetes cluster.
+The server exposes Kubernetes functionality through **MCP Tools**, **Resources**, and **Prompts**, allowing AI agents to inspect, reason over, and safely operate a live Kubernetes cluster.
 
 ---
 
@@ -235,26 +246,26 @@ It exposes Kubernetes functionality through **Tools**, **Resources**, and **Prom
 | Tool | Description |
 |------|-------------|
 | `get_cluster_state()` | Returns a live summary of the Kubernetes cluster |
-| `get_pod_health(namespace)` | Retrieves pod health and readiness information |
-| `list_deployments(namespace)` | Lists deployments within a namespace |
-| `scale_deployment(name, replicas)` | Safely scales a deployment after policy validation |
-| `rollback_deployment(name)` | Rolls back a deployment to its previous revision |
+| `get_pod_health(namespace)` | Retrieves pod health information |
+| `list_deployments(namespace)` | Lists deployments in a namespace |
+| `scale_deployment(name, replicas)` | Safely scales deployments after policy validation |
+| `rollback_deployment(name)` | Rolls back a deployment revision |
 | `cordon_node(node)` | Marks a node as unschedulable |
 | `uncordon_node(node)` | Makes a node schedulable again |
-| `drain_node(node)` | Safely evicts workloads from a node |
+| `drain_node(node)` | Safely drains a Kubernetes node |
 
 ---
 
 ## 📚 MCP Resources
 
-| Resource | Purpose |
-|-----------|----------|
+| Resource | Description |
+|-----------|-------------|
 | `k8s://cluster/topology` | Live cluster topology |
 | `k8s://cluster/nodes` | Node information |
 | `k8s://cluster/deployments` | Deployment summaries |
-| `k8s://policy/disruption-budgets` | PodDisruptionBudget information |
+| `k8s://policy/disruption-budgets` | PodDisruptionBudget details |
 | `k8s://audit/history` | Complete remediation history |
-| `k8s://cluster/metrics` | Cluster metrics collected from kube-state-metrics |
+| `k8s://cluster/metrics` | Metrics from kube-state-metrics |
 
 ---
 
@@ -262,12 +273,13 @@ It exposes Kubernetes functionality through **Tools**, **Resources**, and **Prom
 
 ### `cluster_health_brief`
 
-Generates:
+Provides:
 
-- Cluster summary
-- Current health status
+- Overall cluster health
+- Deployment summary
+- Infrastructure recommendations
 - Resource utilization
-- Recommendations
+- Operational insights
 
 ---
 
@@ -275,27 +287,27 @@ Generates:
 
 Produces:
 
-- Approved actions
-- Blocked actions
-- Reason for rejection
+- Requested action
+- Approval status
+- Rejection reason
 - Safety validation
-- Complete audit trail
+- Audit history
 
 ---
 
 # ⚙️ Technology Stack
 
-| Category | Technologies |
-|-----------|--------------|
-| **Language** | TypeScript |
-| **Runtime** | Node.js |
-| **Framework** | NitroStack MCP SDK |
-| **Container Platform** | Docker Desktop |
-| **Orchestration** | Kubernetes |
-| **Local Cluster** | kind |
-| **CLI** | kubectl |
-| **Metrics** | kube-state-metrics |
-| **Infrastructure API** | Kubernetes Client SDK |
+| Category | Technology |
+|-----------|------------|
+| Programming Language | TypeScript |
+| Runtime | Node.js |
+| MCP Framework | NitroStack MCP SDK |
+| Container Platform | Docker Desktop |
+| Container Orchestration | Kubernetes |
+| Local Cluster | kind |
+| Kubernetes CLI | kubectl |
+| Metrics | kube-state-metrics |
+| Kubernetes Client | Kubernetes Client SDK |
 
 ---
 
@@ -347,7 +359,7 @@ helmsman/
 
 ## Prerequisites
 
-Install the following before running HelmsMan.
+Before running HelmsMan, ensure the following are installed:
 
 - Node.js **18+**
 - Docker Desktop
@@ -360,9 +372,9 @@ Verify your installation:
 
 ```bash
 node -v
+docker --version
 kubectl version --client
 kind version
-docker --version
 ```
 
 ---
@@ -375,7 +387,7 @@ Clone the repository.
 git clone https://github.com/<your-username>/helmsman.git
 ```
 
-Move into the project.
+Navigate to the project.
 
 ```bash
 cd helmsman
@@ -391,8 +403,6 @@ npm install
 
 # ☸️ Create the Kubernetes Cluster
 
-Using the provided setup script:
-
 ### Windows
 
 ```powershell
@@ -406,13 +416,13 @@ chmod +x scripts/setup.sh
 ./scripts/setup.sh
 ```
 
-Or manually:
+Or manually create a cluster:
 
 ```bash
 kind create cluster --name helmsman
 ```
 
-Verify:
+Verify the cluster:
 
 ```bash
 kubectl get nodes
@@ -420,18 +430,18 @@ kubectl get nodes
 
 ---
 
-# 🚀 Deploy Demo Resources
+# 📥 Deploy Demo Resources
 
-Deploy the sample workloads.
+Deploy the sample workloads and policies.
 
 ```bash
 kubectl apply -f manifests/
 ```
 
-Verify:
+Verify the deployment.
 
 ```bash
-kubectl get pods -A
+kubectl get all -A
 ```
 
 ---
@@ -461,23 +471,23 @@ Running Safety Tests...
 
 ✔ Replica validation
 ✔ PodDisruptionBudget enforcement
-✔ Safe scale-down validation
-✔ Unsafe operation rejection
+✔ Safe scaling
+✔ Unsafe scaling rejection
 
-Safety self-check: OK
+Safety self-check: PASSED
 ```
 
 ---
 
 # ▶️ Start the MCP Server
 
-Run the development server.
+Development mode:
 
 ```bash
 npm run dev
 ```
 
-or
+Production mode:
 
 ```bash
 npm start
@@ -485,55 +495,48 @@ npm start
 
 ---
 
-# 🖥 Connect with NitroStudio
+# 🖥️ Connect Using NitroStudio
 
-1. Open NitroStudio
+1. Launch NitroStudio.
+2. Open the HelmsMan project.
+3. Start the MCP server.
+4. Connect to the running server.
+5. Explore the available:
+   - Tools
+   - Resources
+   - Prompts
 
-2. Import the project
-
-3. Start the MCP Server
-
-4. Connect to the server
-
-5. View available:
-
-- Tools
-- Resources
-- Prompts
-
-The server is now ready to receive agent requests.
+Once connected, HelmsMan is ready to receive AI agent requests.
 
 ---
 
 # 🎬 Demo Walkthrough
 
-## Step 1 — Start Kubernetes
-
-Create the local **kind** cluster.
+## Step 1 — Start the Cluster
 
 ```bash
 kubectl get nodes
 ```
 
-Ensure the cluster is healthy.
+Verify that the cluster is healthy.
 
 ---
 
-## Step 2 — Deploy the Demo Application
+## Step 2 — Deploy the Sample Application
 
-Deploy an intentionally over-provisioned application.
+Deploy an intentionally over-provisioned workload.
 
 ```text
-checkout-service
+Deployment: checkout-service
 
-Replicas = 5
+Replicas: 5
 ```
 
 ---
 
-## Step 3 — Request Cost Optimization
+## Step 3 — FinOps Agent Suggests Optimization
 
-The FinOps Agent proposes:
+The FinOps Agent recommends:
 
 ```text
 Scale checkout-service
@@ -547,22 +550,22 @@ Scale checkout-service
 
 ---
 
-## Step 4 — Guardian Review
+## Step 4 — Availability Guardian Review
 
 The Availability Guardian evaluates:
 
 - Deployment health
-- Replica count
+- Current replicas
 - PodDisruptionBudget
-- Minimum availability
+- Minimum available pods
 
 ---
 
 ## Step 5 — Safety Validation
 
-The Safety Engine checks the live Kubernetes API.
+Before execution, the Safety Engine validates the request using the live Kubernetes API.
 
-If scaling would violate a PodDisruptionBudget:
+Example response:
 
 ```json
 {
@@ -571,39 +574,35 @@ If scaling would violate a PodDisruptionBudget:
 }
 ```
 
-The operation is rejected before reaching Kubernetes.
+Unsafe operations are rejected immediately.
 
 ---
 
-## Step 6 — Audit Trail
+## Step 6 — View the Audit Trail
 
-Query:
+Run the following prompt:
 
 ```text
 change_record
 ```
 
-Result:
+The audit includes:
 
-- Requested action
-- Safety validation
-- Decision
+- Requested operation
+- Approval status
 - Timestamp
+- Validation checks
 - Rejection reason
 
 ---
 
-## Step 7 — Verify the Cluster
+## Step 7 — Verify Cluster State
 
 ```bash
 kubectl get pods
 ```
 
-The deployment remains healthy.
-
-No pods are terminated.
-
-Application availability is preserved.
+The deployment remains healthy and no pods are terminated because the Safety Engine blocked the unsafe action.
 
 ---
 
@@ -611,44 +610,50 @@ Application availability is preserved.
 
 HelmsMan continuously reasons over:
 
-- Deployment status
+- Deployments
 - ReplicaSets
-- Pod readiness
-- Node conditions
-- Cluster topology
+- Pods
+- Nodes
+- Services
 - PodDisruptionBudgets
+- Cluster topology
 - kube-state-metrics
 - Previous remediation history
 
-This allows the AI agents to make informed decisions using the current cluster state rather than relying on static metrics.
+This enables AI agents to make informed decisions using the **live state** of the Kubernetes cluster instead of relying solely on static resource metrics.
 
+---
 
 # 🌟 Why HelmsMan?
 
-Traditional Kubernetes tooling focuses on monitoring metrics and reacting to predefined thresholds. HelmsMan introduces an AI-driven, policy-aware remediation framework that reasons over the live cluster state before executing any infrastructure change.
+Modern Kubernetes platforms provide excellent orchestration capabilities, but operational decisions still require human intervention or rely on simple metric-based autoscaling.
 
-## Comparison
+HelmsMan introduces a new paradigm: **policy-aware autonomous remediation**, where AI agents collaborate to optimize infrastructure while a deterministic safety engine guarantees that Kubernetes availability policies are never violated.
+
+---
+
+## 📊 Comparison
 
 | Traditional Kubernetes Operations | ⚓ HelmsMan |
-|-----------------------------------|------------|
-| CPU/Memory Threshold Autoscaling | Multi-Agent AI Decision Making |
+|----------------------------------|------------|
+| CPU / Memory Threshold Autoscaling | Multi-Agent AI Decision Making |
 | Reactive Monitoring | Autonomous Remediation |
-| Manual Scaling Decisions | Intelligent Cost Optimization |
+| Manual Infrastructure Decisions | Intelligent Cost Optimization |
 | No Operational Reasoning | Live Cluster State Reasoning |
-| Safety Depends on Engineers | Deterministic Safety Engine |
-| No Negotiation | Multi-Agent Negotiation |
+| Safety Depends on Operators | Deterministic Safety Engine |
+| No Agent Collaboration | Multi-Agent Negotiation |
 | Limited Auditability | Complete Audit Trail |
-| Metrics Only | Metrics + Kubernetes Policies |
+| Metrics-Only Decisions | Metrics + Kubernetes Policies |
 
 ---
 
 # 🛡️ Safety by Design
 
-HelmsMan follows a **"Trust, but Verify"** approach.
+HelmsMan follows a **"Trust, but Verify"** philosophy.
 
-AI agents are free to propose remediation actions, but **they never interact directly with the Kubernetes API**.
+AI agents can propose infrastructure changes, but **they never communicate directly with Kubernetes**.
 
-Instead, every operation flows through the MCP server where the Safety Engine validates:
+Every action is routed through the MCP server where the Safety Engine validates:
 
 - Deployment status
 - Replica count
@@ -659,142 +664,106 @@ Instead, every operation flows through the MCP server where the Safety Engine va
 
 Only validated operations are executed.
 
-This architecture guarantees that **availability is enforced programmatically rather than relying solely on LLM reasoning**.
-
----
-
-# 📊 Example Workflow
-
-```text
-                    User Request
-                          │
-                          ▼
-                 FinOps Agent Analysis
-                          │
-                          ▼
-             Availability Guardian Review
-                          │
-                          ▼
-             HelmsMan Safety Engine
-                          │
-        ┌─────────────────┴─────────────────┐
-        │                                   │
-        ▼                                   ▼
- Policy Passed                      Policy Violated
-        │                                   │
-        ▼                                   ▼
- Execute via Kubernetes API          Reject Operation
-        │                                   │
-        └──────────────┬────────────────────┘
-                       ▼
-                Audit Trail Updated
-```
+This architecture ensures that **availability is enforced programmatically instead of relying solely on AI reasoning**.
 
 ---
 
 # 🔐 Safety Guarantees
 
-HelmsMan guarantees that every remediation action:
+Every remediation request undergoes:
 
-- ✅ Preserves PodDisruptionBudget constraints
-- ✅ Protects minimum replica availability
-- ✅ Validates against the live Kubernetes API
-- ✅ Records every action in the audit history
-- ✅ Rejects unsafe infrastructure changes automatically
+- ✅ Live Kubernetes API validation
+- ✅ PodDisruptionBudget enforcement
+- ✅ Replica safety verification
+- ✅ Deployment health checks
+- ✅ Complete audit logging
+
+If any policy would be violated, the operation is automatically rejected before reaching Kubernetes.
 
 ---
 
 # 📸 Project Screenshots
 
-## System Architecture
+## 🏗️ System Architecture
 
 <p align="center">
-<img src="images/architecture.png" width="900"/>
+  <img src="images/architecture.png" width="900">
 </p>
 
 ---
 
-## Multi-Agent Workflow
+## 🔄 Multi-Agent Workflow
 
 <p align="center">
-<img src="images/architecture-flow.png" width="900"/>
+  <img src="images/architecture-flow.png" width="900">
 </p>
 
 ---
 
-## NitroStudio Dashboard
+## 📊 NitroStudio Dashboard
 
 <p align="center">
-<img src="images/dashboard.png" width="900"/>
+  <img src="images/dashboard.png" width="900">
 </p>
 
 ---
 
 # 🔮 Future Roadmap
 
-We plan to extend HelmsMan with several advanced cloud-native capabilities.
+HelmsMan is designed to evolve into a comprehensive autonomous cloud operations platform.
 
-### Kubernetes
+### ☸️ Kubernetes
 
 - Horizontal Pod Autoscaler integration
 - Vertical Pod Autoscaler integration
-- Multi-cluster federation
 - StatefulSet remediation
-- DaemonSet support
+- DaemonSet management
+- Multi-cluster federation
+- Cluster autoscaler integration
 
-### AI
+---
+
+### 🤖 AI & Automation
 
 - Predictive scaling using historical metrics
-- LLM-generated remediation plans
+- AI-generated remediation plans
 - Incident root-cause analysis
 - Autonomous rollback recommendations
-- Learning-based optimization strategies
+- Self-learning optimization strategies
 
-### DevOps
+---
+
+### 🚀 DevOps
 
 - ArgoCD integration
 - GitOps workflows
 - Prometheus AlertManager integration
 - Grafana dashboards
-- Slack & Microsoft Teams notifications
+- Slack notifications
+- Microsoft Teams integration
 
-### Security
+---
+
+### 🔒 Security
 
 - RBAC-aware AI agents
-- Policy-based access control
 - OPA / Gatekeeper integration
 - Compliance-aware remediation
+- Policy-driven authorization
+- Fine-grained access control
 
 ---
 
 # 🏆 Hackathon Highlights
 
-✅ Built using the **NitroStack MCP SDK**
-
-✅ Native **Model Context Protocol (MCP)** implementation
-
-✅ Live Kubernetes cluster integration
-
-✅ Multi-Agent AI collaboration
-
-✅ Deterministic server-side safety engine
-
-✅ Real-time policy validation using PodDisruptionBudgets
-
-✅ Observable infrastructure state
-
-✅ Complete remediation audit trail
-
----
-
-# 📚 References
-
-- Kubernetes Documentation
-- Model Context Protocol (MCP)
-- NitroStack MCP SDK
-- PodDisruptionBudget (PDB)
-- kube-state-metrics
-- kind (Kubernetes in Docker)
+- ✅ Native **NitroStack MCP SDK** implementation
+- ✅ Full **Model Context Protocol (MCP)** support
+- ✅ Live Kubernetes API integration
+- ✅ Multi-Agent AI negotiation
+- ✅ Deterministic Safety Engine
+- ✅ PodDisruptionBudget-aware remediation
+- ✅ Observable infrastructure state
+- ✅ Complete remediation audit trail
 
 ---
 
@@ -805,6 +774,7 @@ Contributions are welcome!
 If you'd like to improve HelmsMan:
 
 1. Fork the repository
+
 2. Create a feature branch
 
 ```bash
@@ -817,7 +787,7 @@ git checkout -b feature/my-feature
 git commit -m "Add awesome feature"
 ```
 
-4. Push to GitHub
+4. Push your branch
 
 ```bash
 git push origin feature/my-feature
@@ -827,15 +797,27 @@ git push origin feature/my-feature
 
 ---
 
+# 📚 References
+
+- Kubernetes Documentation
+- Model Context Protocol (MCP)
+- NitroStack MCP SDK
+- PodDisruptionBudget (PDB)
+- kube-state-metrics
+- Kubernetes Client SDK
+- kind (Kubernetes in Docker)
+
+---
+
 # 👥 Team
 
-Built with ❤️ for the **NitroStack MCP Hackathon**
+Built for the **NitroStack MCP Hackathon**
 
 | Member | Role |
 |---------|------|
-| Mounish Senisetty | MCP Server • Backend • Kubernetes |
-| Ashrith | AI Agents • Kubernetes |
-| Sandhiya | Research • Testing • Documentation |
+| **Mounish Senisetty** | MCP Server Development · Kubernetes Integration · Backend |
+| **Ashrith** | AI Agent Design · Kubernetes |
+| **Sandhiya** | Research · Documentation · Testing |
 
 ---
 
@@ -843,42 +825,41 @@ Built with ❤️ for the **NitroStack MCP Hackathon**
 
 This project is licensed under the **MIT License**.
 
-Feel free to use, modify and distribute this project in accordance with the license terms.
+See the `LICENSE` file for more information.
 
 ---
 
 # 🙏 Acknowledgements
 
-Special thanks to:
+Special thanks to the communities and projects that made HelmsMan possible:
 
-- Kubernetes Community
-- NitroStack MCP Team
+- Kubernetes
+- NitroStack MCP
 - Docker
 - OpenAI
-- The Cloud-Native Ecosystem
-
-for providing the tools and technologies that made this project possible.
+- kube-state-metrics
+- The Cloud Native Computing Foundation (CNCF)
 
 ---
 
-# ⭐ Support the Project
+# ⭐ Support
 
-If you found HelmsMan interesting or useful:
+If you found HelmsMan useful:
 
 - ⭐ Star this repository
 - 🍴 Fork the project
 - 🛠️ Contribute improvements
-- 🐛 Report issues
-- 💬 Share your feedback
+- 🐞 Report issues
+- 💡 Share ideas and feedback
 
 ---
 
 <p align="center">
 
-### ⚓ HelmsMan
+## ⚓ HelmsMan
 
 **Autonomous Kubernetes Remediation using the Model Context Protocol**
 
-Built for the **NitroStack MCP Hackathon**
+Built with ❤️ for the **NitroStack MCP Hackathon**
 
 </p>
